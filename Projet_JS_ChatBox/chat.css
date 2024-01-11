@@ -140,11 +140,15 @@ nav{
     background: #ddddf7;
     padding: 10px;
     height: calc(100% - 100px);
+    overflow: scroll;
 }
 .messages .message{
     display: flex;
     gap: 20px;
 }
+/* .messages .message div{
+    flex-direction: column;
+} */
 /* .message .messageinfo{} */
 .message .messageinfo img{
     width: 40px;
@@ -152,8 +156,39 @@ nav{
     border-radius: 50%;
     object-fit: cover;
 }
+.message .messageinfo{
+    display: flex;
+    flex-direction: column;
+    color: gray;
+    font-weight: 300;
+}
+.message .messagecontent{
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.message .messagecontent p{
+    padding: 10px;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 0px 10px 10px 10px;
+}
 .message .messagecontent img{
     width: 50%;
+}
+.messages .message.owner {
+    /* display: flex; */
+    justify-content: flex-end;
+}
+.messages .message.owner .messagecontent{
+    align-items: flex-end;
+}
+.messages .message.owner .messagecontent p{
+    background: #8da4f1;
+    color: white;
+    border-radius: 10px 0px 10px 10px;
+    max-width: max-content;
 }
 
 .chat .bas{
