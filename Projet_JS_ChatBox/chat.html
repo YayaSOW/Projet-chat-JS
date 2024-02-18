@@ -3,60 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="chat.css">
+    <!-- <link rel="stylesheet" href="chat.css"> -->
+    <link rel="stylesheet" href="chat1.css">
+    <!-- <link rel="stylesheet" href="connexion.css"> -->
+    <link rel="stylesheet" href="connexion1.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Chat_Box</title>
 </head>
 <body>
+    <div class="connexion">
+        <div class="form">
+        <!-- <form action=""> -->
+            <h2 class="log">Login</h2>
+            <div class="emai">
+                <label for="text">Email Or Username</label>
+                <div>
+                    <input type="text" class="inputName" placeholder="Enter Email">
+                </div>
+            </div>
+            <div class="password">
+                <label for="password">Password</label>
+                <div>
+                    <input type="password" class="inputpassword" placeholder="Enter Password">
+                </div>
+            </div>
+            <div class="check">
+                <div class="remen">
+                    <input class="checked" type="checkbox"><span class="che">Remember Me</span>
+                </div>
+                <div class="forget">
+                    <a href=""><span class="che">Forget Password?</span></a>
+                </div>
+            </div>
+            <div class="login">
+                <button id="login" type="submit">Login</button>
+            </div>
+            <div class="create">
+                <a href="">Create an Account</a>
+            </div>
+        <!-- </form> -->
+        </div>
+    </div>
     <div class="home">
         <div class="container">
             <nav>
                 <div class="gris">
-                    <div class="mes">
-                        <span><i class='bx bxs-message-rounded'></i></span>
+                    <div class="mes" id="utiliateurs">
+                        <span><i class='bx bxs-message-rounded'></i></span><br>
                         <span>Messages</span>
                     </div>
-                    <div class="mes">
-                        <span><i class='bx bxs-group' ></i></span>
-                        <span>Messages</span>
+                    <div class="mes" id="">
+                        <span><i class='bx bxs-group' ></i></span><br>
+                        <span>Groupes</span>
                     </div>
                     <div class="mes">
-                        <span><i class='bx bx-shuffle'></i></span>
-                        <span>Messages</span>
+                        <span><i class='bx bx-shuffle'></i></span><br>
+                        <span>Diffusions</span>
                     </div>
                     <div class="mes">
-                        <span><i class='bx bxs-box'></i></span>
-                        <span>Messages</span>
+                        <span><i class='bx bxs-box'></i></span><br>
+                        <span>Archives</span>
                     </div>
-                    <div class="mes">
-                        <span><i class='bx bx-plus-medical'></i></span>
-                        <span>Messages</span>
+                    <div class="mes" id="nouveau">
+                        <span><i class='bx bx-plus-medical'></i></span><br>
+                        <span>Nouveau</span>
                     </div>
                 </div>
             </nav>
             <div class="list">
                 <div class="entete">
-                    <span class="logo">Lama chat</span>
-                    <div class="user">
-                        <img src="" alt="">
+                    <span class="logo"><img class="breukh" src="breukh.png" alt=""></span>
+                    <div class="userConnected">
+                        <img class="img" src="" alt="">
                         <span>John</span>
-                        <button>logout</button>
+                        <button class="logout">logout</button>
                     </div>
                 </div>
                 <div class="recherche">
                     <div class="reche">
                         <div class="search">
-                            <input type="text" placeholder="Recherche">
+                            <input type="text" class="searchBar" placeholder="Recherche">
                         </div>
-                        <div class="userchat">
+                        <!-- <div class="userchat">
                             <img src="" alt="">
                             <div class="userchatinfo">
                                 <span>jane</span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="chats">
-                        <div class="userchat">
+                        <!-- Mtn c dans le JS -->
+                        <!-- <div class="userchat">
                             <img src="" alt="">
                             <div class="userchatinfo">
                                 <span>jane</span>
@@ -76,18 +113,18 @@
                                 <span>jane</span>
                                 <p>hello</p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
             <div class="chat">
                 <div class="premier">
-                    <span>jane</span>
+                    <h2><span class="nameOwner">jane</span> <span class="writting stop">Ecrit...</span></h2>
                     <div class="icon">
-                        <i class='bx bxs-tag-x'></i>
-                        <i class='bx bxs-box'></i>
-                        <i class='bx bxs-checkbox'></i>
-                        <i class='bx bxs-trash-alt'></i>
+                        <i style="color: orange;" class='bx bxs-tag-x'></i>
+                        <i style="color: skyblue;" class='bx bxs-box'></i>
+                        <i style="color: black;" class='bx bxs-checkbox'></i>
+                        <i style="color: red;" class='bx bxs-trash-alt'></i>
                     </div>
                 </div>
                 <div class="messages">
@@ -101,7 +138,17 @@
                             <span>just now</span>
                         </div>
                     </div>
-                    <div class="message owner">
+                    <div class="message other">
+                        <div class="messageinfo">
+                            <img src="img/k.jpg" alt="">
+                            <span>just now</span>
+                        </div>
+                        <div class="messagecontent">
+                            <!-- <img src="img/l.jpg" alt=""> -->
+                            <p>hello</p>
+                        </div>
+                    </div>
+                    <!-- <div class="message owner">
                         <div class="messagecontent">
                             <p>hello</p>
                             <img src="img/l.jpg" alt="">
@@ -120,17 +167,17 @@
                             <img src="img/k.jpg" alt="">
                             <span>just now</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="bas">
-                    <input type="text" placeholder=""> 
+                    <input type="text" class="textarea" placeholder=""> 
                     <div class="send">
                         <i class='bx bx-link-alt'></i>
                         <input type="file" id="file" style="display: none;">
                         <label for="file">
                             <i class='bx bxs-file-import'></i>
                         </label>
-                        <button><i class='bx bx-send'></i></button>
+                        <button class="btnSend"><i class='bx bx-send'></i></button>
                     </div>
                 </div>
             </div>

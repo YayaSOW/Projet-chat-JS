@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+:root{
+    --couleur1: #ffffff;
+    /* --couleur2: rgba(21, 5, 244, 0.5); */
+    --couleur2: rgba(225, 225, 225, 0.5);
+    --couleur3: rgba(0, 0, 0);
+}
+
+/* *{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+} */
+
+body .connexion{
+    background-color: #e8e8e8;
+    font-family: 'Open Sans', sans-serif;
+    height: 100vh;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* body .connexione{
+    background-color: #e8e8e8;
+    font-family: 'Open Sans', sans-serif;
+    height: 100vh;
+    width: 100%;
+    flex-wrap: wrap;
+    min-width: fit-content;
+    height: max-content;
+} */
+
+.connexion{
+    color: var(--couleur1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.connexion.hide{
+    display: none;
+}
+.connexion .form{
+    border-radius: 15px;
+    padding: 40px;
+    backdrop-filter: blur(15px);
+    background: var(--couleur3);
+    width: 300px;
+    /* display: grid; */
+    /* justify-content: center; */
+    /* text-align: center; */
+    filter: drop-shadow(0px 0px 10px rgba(53, 53, 54, 0.5));
+}
+
+.connexion h2{
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+}
+
+.image{
+    text-align: center;
+    width: 90px;
+    height: 80px;
+    background-color: #e8e8e8;
+    margin: auto;
+    margin-bottom: 20px;
+}
+img{
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
+    cursor: pointer;
+}
+
+#img{
+    display: none;
+}
+
+.connexion label,
+.connexion span,
+.connexion .forget,
+.connexion.create{
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 0px 10px 0px;
+}
+
+.connexion input{
+    color: #fff;
+    background-color: var(--couleur2);
+    padding: 10px;
+    border: none;
+    height: 20px;
+    border-radius: 8px;
+    outline: none;
+    width: 100%;
+}
+.connexion input::placeholder{
+    color: white;
+    font-size: 12px;
+}
+
+.connexion .check{
+    display: flex;
+    justify-content: space-between;
+}
+.connexion .che{
+    font-size: 10px;
+}
+.connexion .remen input[type="checkbox"]{
+    /* margin-top: 5px; */
+    vertical-align: middle;
+}
+.connexion .remen{
+    margin-top: 5px;
+}
+
+/* .remen span{
+    vertical-align: middle;
+} */
+.connexion .remen>input{
+    margin-right: 2px;
+    width: 10px;
+    cursor: pointer;
+}
+.connexion .forget>a{
+    color: var(--couleur2);
+}
+.connexion .login{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+.connexion .login>button{
+    cursor: pointer;
+    color: #fff;
+    width: 50%;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: var(--couleur2);
+    border: none;
+    border-radius: 15px;
+}
+.connexion .create{
+    text-align: center;
+    margin-top: 5px;
+}
+.connexion .create>a{
+    color: #03f423;
+}

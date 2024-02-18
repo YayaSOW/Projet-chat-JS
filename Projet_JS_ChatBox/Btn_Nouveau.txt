@@ -1,0 +1,153 @@
+document.addEventListener('DOMContentLoaded', function () {
+    var nouveauButton = document.getElementById('nouveau');
+
+    nouveauButton.addEventListener('click', function () {
+        ajouterNouveauContact();
+    });
+});
+
+function ajouterNouveauContact() {
+    // Code pour ajouter un nouveau contact ici
+    // Par exemple, vous pouvez afficher un formulaire modal, etc.
+    // Vous pouvez également définir une fonction pour gérer l'ajout du contact.
+    alert("Fonctionnalité d'ajout d'un nouveau contact à implémenter!");
+}
+
+function ajouterNouveauContact() {
+    // Créer un formulaire modal
+    var modalContent = `
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nom">
+                <label for="numero">Numéro de téléphone:</label>
+                <input type="text" id="numero" name="numero">
+                <button onclick="enregistrerNouveauContact()">Enregistrer</button>
+            </div>
+        </div>
+    `;
+
+    // Ajouter le formulaire modal au corps du document
+    document.body.innerHTML += modalContent;
+
+    // Récupérer les éléments du formulaire modal
+    var modal = document.getElementById('myModal');
+    var closeBtn = document.getElementsByClassName('close')[0];
+
+    // Afficher le formulaire modal
+    modal.style.display = 'block';
+
+    // Fermer le formulaire modal si l'utilisateur clique sur le bouton de fermeture
+    closeBtn.onclick = function () {
+        modal.style.display = 'none';
+    };
+}
+
+function enregistrerNouveauContact() {
+    // Code pour enregistrer le nouveau contact (par exemple, ajouter à une liste, base de données, etc.)
+    // Vous pouvez obtenir les valeurs du formulaire en utilisant document.getElementById('nom').value, etc.
+    alert("Contact enregistré avec succès!");
+    
+    // Fermer le formulaire modal
+    var modal = document.getElementById('myModal');
+    modal.style.display = 'none';
+}
+
+
+function renderUsers(filteredUsers) {
+    // Code pour afficher les utilisateurs dans votre interface utilisateur
+    // Par exemple, vous pouvez créer des éléments HTML (comme des divs) pour chaque utilisateur et les ajouter à un conteneur dans votre interface utilisateur
+    userchat.innerHTML=""
+    users.forEach(function (usr,i) {
+        const dernierMessage = usr.messages[usr.messages.length - 1]; // Accéder au dernier message dans la liste des messages
+        if (i!=posConnectedUser) {
+            userchat.innerHTML+=`<div>
+                                    <img src="${usr.img}" alt="">
+                                    <div class="userchatinfo">
+                                    <span>${usr.nom}</span>
+                                    </div><br>
+                                </div>`
+        }
+    })
+}
+
+function filterElements(letters, elements) {
+    const filteredUsers = elements.filter(user => user.nom.toLowerCase().includes(letters.toLowerCase()));
+    renderUsers(filteredUsers);
+}
+
+searchBar.addEventListener("keyup", (e) => {
+    const searchedLetters = e.target.value;
+    filterElements(searchedLetters, users);
+});
+
+
+----------------------------
+function getConnectedUserIndex() {
+    return posConnectedUser;
+}
+
+function displayLastSentMessage() {
+    const connectedUserIndex = getConnectedUserIndex();
+    if (connectedUserIndex !== -1) {
+        const connectedUser = users[connectedUserIndex];
+        const lastMessageSent = connectedUser.messages[connectedUser.messages.length - 1];
+        if (lastMessageSent) {
+            document.querySelector(".dernierMessage").innerText = lastMessageSent.text;
+        }
+    }
+}
+---
+btnSend.addEventListener("click",()=>{
+    const newMessage = textarea.value;
+    if (!newMessage.trim() || posUserActual === -1) {
+        return;
+    }
+    users[posUserActual].messages.push({
+        text: newMessage,
+        date: getCurrentDate()
+    });
+
+    // Appeler la fonction pour afficher le dernier message envoyé par l'utilisateur connecté
+    displayLastSentMessage();
+
+    // Vider le champ de saisi
+    textarea.value = "";
+    
+    // Enlever writting
+    isWritting();
+})
+----
+function printMessage(usertab, imguser) {
+    nameOwner.innerHTML = `${usertab.nom}`;
+    messages.innerHTML = "";
+    const dernierMessage = getLastMessage(posConnectedUser); // Obtenez le dernier message de l'utilisateur connecté
+    messages.innerHTML += `
+        <div class="message owner">
+            <div class="messagecontent">
+                <p>${dernierMessage.text}</p>
+                <img src="" alt="">
+            </div>
+            <div class="messageinfo">
+                <img src="${imguser}" alt="">
+                <span>${dernierMessage.date}</span>
+            </div>
+        </div>
+    `;
+    usertab.messages.forEach(function (msg) {
+        messages.innerHTML += `
+            <div class="message owner">
+                <div class="messagecontent">
+                    <p>${msg.text}</p>
+                    <img src="" alt="">
+                </div>
+                <div class="messageinfo">
+                    <img src="${imguser}" alt="">
+                    <span>${msg.date}</span>
+                </div>
+            </div>
+        `;
+    });
+}
+---
